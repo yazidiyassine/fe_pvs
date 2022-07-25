@@ -1,7 +1,6 @@
 <template>
 <nav>
-    <v-app-bar dense clipped-right class="nvbar" app height="52px"
-    >
+    <v-app-bar dense clipped-right class="nvbar" app height="52px">
     <v-app-bar-nav-icon 
            @click="drawer = !drawer"
             ></v-app-bar-nav-icon>
@@ -33,7 +32,6 @@
   >
     <v-list rounded>
       <v-list-item-group
-        v-model="selectedItem"
         color="primary"
       >
         <v-list-item
@@ -72,27 +70,27 @@ export default{
         {
           action: 'mdi-bank-plus',
           title: 'المحاضر',
-          route: ''
+          route: '/'
         },
         {
           action: 'mdi-cog-sync',
           title: 'الإحالات',         
-          route: ''
+          route: '/'
         },
         {
           action: 'mdi-poll',
           title: 'إحصائيات',
-          route: ''
+          route: '/'
         },
         {
           action: 'mdi-account-cog',
           title: 'الحسابات',
-          route: ''
+          route: '/'
         },
         {
           action: 'mdi-shield-star',
           title: 'الانابات',
-          route: ''
+          route: '/'
         }
       ],
         }

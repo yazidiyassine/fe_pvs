@@ -9,12 +9,14 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
-    },
+    children: [
       {
         path: 'plaintes',
         name: 'plaintes',
         component: plaintes
       }
+    ]
+  }
 ]
 
 const router = new VueRouter({

@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <app_navbar />
+  <div class="home">
+    <app_navbar />
     <v-main class="ma-6">
       <router-view />
     </v-main>
@@ -13,9 +13,5 @@ import app_navbar from '@/components/app_navbar.vue'
     components: {
             app_navbar  
       },
-      data(){
-        
-      },
-      
   }
 </script>
