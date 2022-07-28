@@ -6,7 +6,6 @@
     </v-main>
   </div>
 </template>
-
 <script>
 import app_navbar from '@/components/app_navbar.vue'
   export default {

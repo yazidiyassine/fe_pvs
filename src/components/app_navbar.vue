@@ -18,7 +18,7 @@
         </v-btn> 
     </v-app-bar>
     
-    <v-navigation-drawer clipped right  v-model="drawer"  class="ma-4">
+    <v-navigation-drawer clipped right  v-model="drawer" app  class="ma-4">
 
      <v-card  flat outlined>
     <router-link to="" style="text-decoration:none;" class="pa-0 ma-0">
@@ -36,8 +36,8 @@
       >
         <v-list-item
           v-for="(item, i) in items"
-          router :to="item.route"
           :key="i"
+          router :to="item.route"
         >
           <v-list-item-icon>
             <v-icon left v-text="item.action"></v-icon>
@@ -51,16 +51,13 @@
     </v-list>
      </v-card>
     </v-navigation-drawer>
-
 </nav>
-
 </template>
 <script>
 export default{
     data() {
         return {
             drawer: false,
-            selectedItem: 1,
             items: [
         {
           action: 'mdi-scale-balance',
@@ -70,27 +67,27 @@ export default{
         {
           action: 'mdi-bank-plus',
           title: 'المحاضر',
-          route: '/'
+          route: '/1'
         },
         {
           action: 'mdi-cog-sync',
           title: 'الإحالات',         
-          route: '/'
+          route: '/2'
         },
         {
           action: 'mdi-poll',
           title: 'إحصائيات',
-          route: '/'
+          route: '/3'
         },
         {
           action: 'mdi-account-cog',
           title: 'الحسابات',
-          route: '/'
+          route: '/4'
         },
         {
           action: 'mdi-shield-star',
           title: 'الانابات',
-          route: '/'
+          route: '/5'
         }
       ],
         }

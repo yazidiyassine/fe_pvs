@@ -1,15 +1,6 @@
 <template>
 <div class="ajout">
-<p class="subheading dark--text mb-0 mt-0">إضافة شكاية</p>
-  <v-spacer></v-spacer>
-      <v-icon right>mdi-police-badge-outline</v-icon>
-        الاجراءات
-      
-      class="text-h6 mx-10"
-      >
-      <v-icon right>mdi-note-multiple-outline</v-icon>
-        إضافة المرفقات
-      
+
      <v-card elevation="2" 
   outlined  class="mx-auto my-auto justify-center"
      >
@@ -24,15 +15,9 @@
            <v-row no-gutters dense >
           <v-col cols="12" sm="4" class="ml-2">
             <v-select
-            v-model="plaint.TypePlaintID"
             class="blue-lighten-6" 
-            :items="serv_plaint[1]" 
-            item-text="nom"
-            item-value="id"
             label="نوع الشكاية" 
-            :rules="rules.select2"
              dense
-              
             outlined
             >
             </v-select>
@@ -40,13 +25,10 @@
           
           <v-col cols="12" sm="4" class="ml-2">
             <v-select
-            v-model="plaint.SourcePlaintID"
-            :items="serv_plaint[0]"
             item-text="nom" 
             item-value="id" 
             label="مصدر الشكاية"
             dense 
-            :rules="[() => !!slct || '']"
             required 
             outlined
            
@@ -58,17 +40,15 @@
            <v-col cols="12" sm="4" class="ml-2">
           <v-text-field 
             dense
-            v-model="plaint.referencePlaints"
-            outlined   :rules="rules.name"
+            outlined
             required 
             label="مرجع الشكاية"
           ></v-text-field>
         </v-col>
         <v-col cols="12" sm="4" class="ml-2">
           <v-text-field dense 
-            single-line 
-            v-model="plaint.EmplaceFaits"
-            outlined :rules="rules.name"
+            single-line
+            outlined
             required 
             label="مكان الوقائع"
           ></v-text-field>
@@ -79,21 +59,18 @@
       cols="12"
       sm="3" class="ml-2"
     >
-
       <v-menu
         ref="menu"
         v-model="menu"
         :close-on-content-click="false"
-        :return-value.sync="plaint.datePlaints"
         transition="scale-transition"
         offset-y
         min-width="auto"
       >
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
-            v-model="plaint.datePlaints"
             prepend-inner-icon="mdi-calendar"
-            readonly :rules="rules.name"
+            readonly
             v-bind="attrs" dense
             v-on="on"
             outlined required 
@@ -101,7 +78,6 @@
           ></v-text-field>
         </template>
         <v-date-picker
-          v-model="plaint.datePlaints"
           no-title
           scrollable
         >
@@ -149,7 +125,6 @@
           ></v-text-field>
         </template>
         <v-date-picker
-          v-model="plaint.dateEnregPlaints"
           no-title
           scrollable
         >
@@ -165,7 +140,7 @@
             text
             outlined
             color="primary"
-            @click="$refs.menu1.save(plaint.dateEnregPlaints)"
+            @click="$refs.menu1.save()"
           >
             OK
           </v-btn>
@@ -188,9 +163,9 @@
       >
         <template v-slot:activator="{ on, attrs }">
           <v-text-field
-            v-model="plaint.dateFaits" dense
+            dense
            prepend-inner-icon="mdi-calendar"
-            readonly :rules="rules.name"
+            readonly
             v-bind="attrs"
             v-on="on" required 
             label="تاريخ الوقائع"
@@ -198,7 +173,6 @@
           ></v-text-field>
         </template>
         <v-date-picker
-          v-model="plaint.dateFaits"
           no-title
           scrollable
         >
@@ -213,7 +187,7 @@
           <v-btn
             text
             color="primary"
-            @click="$refs.menu2.save(plaint.dateFaits)"
+            @click="$refs.menu2.save()"
           >
             OK
           </v-btn>
@@ -224,9 +198,7 @@
     <v-row no-gutters dense>
     <v-col cols="12" sm="9" class="ml-2">
     <v-textarea
-    clearable
-    value="" dense
-    v-model="plaint.sujetPlaints"
+    clearable dense
     label="موضوع الشكاية"
     class="font-weight-black"
     rows="1"
@@ -242,43 +214,14 @@
    <v-card 
   outlined  class="mx-auto my-4"
   flat
-  
      >
         <v-form>
-        
-  
   <v-spacer></v-spacer>
 
-  <v-row>
-    <v-col cols="12" sm="4"></v-col>
-   <v-card-actions class="mt-4">
-              <v-btn
-               text
-              height="30px"
-              class="my-2 blue"
-              elevation="2" 
-              :loading="load"
-            >
-            <v-icon left >mdi-notebook-plus-outline</v-icon>             
-               تسجيل الشكاية
-              </v-btn>
-              <v-btn
-          text
-          height="30px"
-              class="my-2 red"
-              elevation="2"
-        >
-          إلغاء
-        </v-btn>
-        <v-spacer></v-spacer>
-              </v-card-actions></v-row>
-          </v-form>
-  </v-card>
         <template><v-card flat  class="mt-9 mr-4">
           <v-form><v-row  dense justify align-content-center><v-col cols="12" sm="4">
  <v-file-input
     color="blue accent-4"
-    v-model="files"
     counter class="mt-3"
     label="أضف المُرفق"
     multiple
@@ -320,6 +263,31 @@
               </v-card-actions></v-col>
       </v-row></v-form></v-card>
 </template>
+  <v-row>
+    <v-col cols="12" sm="4"></v-col>
+   <v-card-actions class="mt-4">
+              <v-btn
+               text
+              height="30px"
+              class="my-2 blue"
+              elevation="2" 
+              :loading="load"
+            >
+            <v-icon left >mdi-notebook-plus-outline</v-icon>             
+               تسجيل الشكاية
+              </v-btn>
+              <v-btn
+          text
+          height="30px"
+              class="my-2 red"
+              elevation="2"
+        >
+          إلغاء
+        </v-btn>
+        <v-spacer></v-spacer>
+              </v-card-actions></v-row>
+          </v-form>
+  </v-card>
 </div>
 
 </template>
