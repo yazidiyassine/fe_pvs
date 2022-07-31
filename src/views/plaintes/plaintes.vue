@@ -2,20 +2,21 @@
 <div>
   <v-tabs
       v-model="tab"
-       active-class="active1"
+       active-class="smallnavbar"
        height="35px"
+       class="mb-3"
     >
     <v-tab
       class="text-h6 mx-10"
       >
-      <v-icon right>mdi-note-multiple-outline</v-icon>
+      <v-icon right>mdi-note-plus</v-icon>
        إضافة شكاية
       </v-tab>
       <v-tab
-      class="text-h7 mx-10"
+      class="text-h6 mx-10"
       
       >
-      <v-icon right>mdi-police-badge-outline</v-icon>
+      <v-icon right>mdi-note-search</v-icon>
       بحث عن شكاية
       </v-tab>
        </v-tabs>
@@ -47,11 +48,3 @@ import chercheplainte from '@/components/plaintes/cherche_plainte.vue'
     }
   }
 </script>
-<style>
-  .active1 {
-       color: #222222 !important;
-       background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F) !important; 
-       background: linear-gradient(to right, #4ca2cd, #67B26F) !important; 
-
-    }
-</style>

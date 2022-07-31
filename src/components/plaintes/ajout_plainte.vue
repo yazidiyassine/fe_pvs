@@ -4,8 +4,8 @@
      <v-card elevation="2" 
   outlined  class="mx-auto my-auto justify-center"
      >
-     <v-toolbar class="nvbar mb-3" flat height="34px" app>
-  <v-toolbar-title  class=" darkgrey--text text-h6">معطيات الشكاية</v-toolbar-title>
+     <v-toolbar class="smallnavbar mb-3" flat height="34px" app>
+  <v-toolbar-title  class=" darkgrey--text text-h5">معطيات الشكاية</v-toolbar-title>
   </v-toolbar>
         <v-form 
         dense
@@ -55,51 +55,7 @@
         </v-col>
 </v-row>
 <v-row no-gutters dense>
-          <v-col
-      cols="12"
-      sm="3" class="ml-2"
-    >
-      <v-menu
-        ref="menu"
-        v-model="menu"
-        :close-on-content-click="false"
-        transition="scale-transition"
-        offset-y
-        min-width="auto"
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-text-field
-            prepend-inner-icon="mdi-calendar"
-            readonly
-            v-bind="attrs" dense
-            v-on="on"
-            outlined required 
-            label="تاريخ الشكاية"
-          ></v-text-field>
-        </template>
-        <v-date-picker
-          no-title
-          scrollable
-        >
-          <v-spacer></v-spacer>
-          <v-btn
-            text
-            color="primary"
-            @click="menu = false"
-          >
-            Cancel
-          </v-btn>
-          <v-btn
-            text
-            color="primary"
-            @click="$refs.menu.save(plaint.datePlaints)"
-          >
-            OK
-          </v-btn>
-        </v-date-picker>
-      </v-menu>
-    </v-col>
-        <v-col
+         <v-col
       cols="12"
       sm="3" class="ml-2"
     >
@@ -147,60 +103,10 @@
         </v-date-picker>
       </v-menu>
     </v-col>
-     <v-col
-      cols="12"
-      sm="3"
-      class="ml-2"
-    >
-      <v-menu
-        ref="menu2"
-        v-model="menu2"
-        :close-on-content-click="false"
-        :return-value.sync="date2"
-        transition="scale-transition"
-        offset-y
-        min-width="auto"
-      >
-        <template v-slot:activator="{ on, attrs }">
-          <v-text-field
-            dense
-           prepend-inner-icon="mdi-calendar"
-            readonly
-            v-bind="attrs"
-            v-on="on" required 
-            label="تاريخ الوقائع"
-            outlined
-          ></v-text-field>
-        </template>
-        <v-date-picker
-          no-title
-          scrollable
-        >
-          <v-spacer></v-spacer>
-          <v-btn
-            text
-            color="primary"
-            @click="menu = false"
-          >
-            Cancel
-          </v-btn>
-          <v-btn
-            text
-            color="primary"
-            @click="$refs.menu2.save()"
-          >
-            OK
-          </v-btn>
-        </v-date-picker>
-      </v-menu>
-    </v-col>
-    </v-row>
-    <v-row no-gutters dense>
-    <v-col cols="12" sm="9" class="ml-2">
+    <v-col cols="12" sm="7" class="ml-2">
     <v-textarea
     clearable dense
     label="موضوع الشكاية"
-    class="font-weight-black"
     rows="1"
     outlined
     no-resize
@@ -343,3 +249,4 @@ export default {
 }
 }
 </script>
+<style scoped>
